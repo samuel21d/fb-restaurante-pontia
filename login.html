@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar Sesión</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <div class="login-container">
+    <h1>Iniciar Sesión</h1>
+    <form id="login-form">
+      <input type="email" id="email" placeholder="Correo electrónico" required>
+      <input type="password" id="password" placeholder="Contraseña" required>
+      <button type="submit">Iniciar Sesión</button>
+    </form>
+    <p id="error-message" style="color: red; display: none;"></p>
+    <p class="forgot-password">
+      <a href="#" id="forgot-password-link">¿Olvidaste tu contraseña?</a>
+    </p>
+  </div>
+
+  <!-- Modal para recuperar contraseña -->
+  <div id="forgot-password-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>Recuperar Contraseña</h2>
+      <form id="forgot-password-form">
+        <input type="email" id="recovery-email" placeholder="Correo electrónico" required>
+        <button type="submit">Enviar enlace de recuperación</button>
+      </form>
+      <p id="recovery-message" style="color: green; display: none;"></p>
+    </div>
+  </div>
+
+  <script type="module" src="login.js"></script>
+</body>
+</html>

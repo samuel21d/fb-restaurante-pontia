@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panel de Administración - Restaurante</title>
+    <link rel="stylesheet" href="admin.css" />
+  </head>
+  <body>
+     <nav>
+	   <div class="nav-title">Admin</div>
+		 <div class="menu-wrapper">
+		   <div id="hamburger" class="hamburger">☰</div>
+		     <div id="dropdown-menu" class="dropdown-menu">
+		     <a href="https://mi-menu-restaurant-pontia.web.app" class="dropdown-item btn-catalogo">Ir al Menú</a>
+		     <button id="cerrar-sesion" class="dropdown-item btn-cerrar-sesion">Cerrar Sesión</button>
+       </div>
+	</div>
+	</nav>
+
+
+    <main>
+      <div class="categorias-panel">
+        <div id="lista-categorias"></div>
+      </div>
+    </main>
+
+    <!-- Popup para crear/editar categoría -->
+    <div id="popup-categoria" class="popup">
+      <div class="popup-contenido">
+        <h2 id="popup-titulo-categoria">Crear Categoría</h2>
+        <form id="form-categoria">
+          <input
+            type="text"
+            id="nombre-categoria"
+            placeholder="Nombre de la categoría"
+            required
+          />
+          <textarea
+            id="descripcion-categoria"
+            placeholder="Descripción de la categoría"
+          ></textarea>
+          <div class="foto-container" id="foto-categoria-container">
+            <div
+              class="foto-selector"
+              onclick="document.getElementById('foto-categoria').click()"
+            >
+              <span class="upload-icon">↑</span>
+            </div>
+          </div>
+          <input
+            type="file"
+            id="foto-categoria"
+            accept="image/*"
+            style="display: none"
+            onchange="previsualizarImagen('foto-categoria', 'foto-categoria-container')"
+          />
+          <button type="submit">Crear Categoría</button>
+        </form>
+        <button id="cancelar-popup-categoria" class="btn-cancelar">
+          Cancelar
+        </button>
+      </div>
+    </div>
+
+    <!-- Popup para crear/editar producto -->
+    <div id="popup-producto" class="popup">
+      <div class="popup-contenido">
+        <h2 id="popup-titulo-producto">Crear Producto</h2>
+        <form id="form-producto">
+          <select id="categoria-producto" required>
+            <option value="">Seleccionar Categoría</option>
+          </select>
+          <input
+            type="text"
+            id="nombre-producto"
+            placeholder="Nombre del producto"
+            required
+          />
+          <div id="ingredientes-container">
+            <div class="ingrediente-group">
+              <input
+                type="text"
+                id="ingrediente-principal"
+                class="ingrediente"
+                placeholder="Ingrediente"
+                required
+                disabled
+              />
+              <button type="button" id="btn-gestion-ingredientes">
+                Añadir ingredientes
+              </button>
+            </div>
+          </div>
+          <div id="acompanantes-container">
+            <div class="acompanante-group">
+              <input
+                type="text"
+                id="acompanante-principal"
+                class="acompanante"
+                placeholder="Acompañante"
+                disabled
+              />
+              <button type="button" id="btn-gestion-acompanantes">
+                Añadir acompañantes
+              </button>
+            </div>
+          </div>
+          <input
+            type="number"
+            id="precio-producto"
+            placeholder="Precio"
+            required
+          />
+          <div class="foto-container" id="foto-producto-container">
+            <div
+              class="foto-selector"
+              onclick="document.getElementById('foto-producto').click()"
+            >
+              <span class="upload-icon">↑</span>
+            </div>
+          </div>
+          <input
+            type="file"
+            id="foto-producto"
+            accept="image/*"
+            style="display: none"
+            onchange="previsualizarImagen('foto-producto', 'foto-producto-container')"
+          />
+          <button type="submit">Crear Producto</button>
+        </form>
+        <button id="cancelar-popup-producto" class="btn-cancelar">
+          Cancelar
+        </button>
+      </div>
+    </div>
+
+    <script type="module" src="admin.js"></script>
+    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'91e533aa5fdf1357',t:'MTc0MTYzNDc2Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+  </body>
+</html>

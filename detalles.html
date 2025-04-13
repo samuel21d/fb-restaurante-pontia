@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalles del Producto</title>
+  <link rel="stylesheet" href="detalles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Botón para volver al catálogo -->
+    <a href="index.html" class="btn-volver">← Volver al Catálogo</a>
+
+    <!-- Detalles del producto -->
+    <div id="detalles-producto">
+      <h1 id="nombre-producto"></h1>
+      <p id="descripcion-producto"></p>
+      <p id="precio-producto"></p>
+
+      <!-- Carrusel de imágenes -->
+      <div id="carrusel-imagenes">
+        <div id="imagen-principal"></div>
+        <div id="miniaturas"></div>
+      </div>
+
+      <!-- Selección de color -->
+      <div id="seleccion-color">
+        <label for="colores">Seleccionar Color:</label>
+        <select id="colores"></select>
+      </div>
+
+      <!-- Selección de talla -->
+      <div id="seleccion-talla">
+        <label for="tallas">Seleccionar Talla:</label>
+        <select id="tallas"></select>
+      </div>
+
+      <!-- Botón de WhatsApp -->
+      <button id="whatsapp-btn">Enviar al WhatsApp</button>
+    </div>
+  </div>
+  <script type="module" src="detalles.js"></script>
+</body>
+</html>

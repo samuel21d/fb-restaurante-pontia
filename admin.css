@@ -1,0 +1,619 @@
+/* Estilos generales */
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f7fa;
+  color: #333;
+}
+
+/* Estilos para la barra de navegación */
+nav {
+  background-color: #4caf50;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-sizing: border-box; /* Añadido para incluir padding en el ancho */
+}
+
+.nav-title {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+/* Contenedor del menú */
+.menu-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: flex-end; /* Alinea el menú a la derecha */
+}
+
+/* Menú hamburguesa */
+.hamburger {
+  font-size: 1.8em;
+  cursor: pointer;
+  padding: 5px 10px;
+  transition: color 0.3s ease;
+  z-index: 1002;
+  margin-left: auto; /* Empuja el icono a la derecha */
+}
+
+.hamburger:hover {
+  color: #e0e0e0;
+}
+
+/* Menú desplegable */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  display: none;
+  flex-direction: column;
+  min-width: 200px;
+  z-index: 1001;
+  transform-origin: top right; /* Para animaciones si las añades */
+}
+
+.dropdown-menu.active {
+  display: flex;
+  animation: fadeIn 0.3s ease; /* Animación opcional */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Elementos del menú */
+.dropdown-item {
+  padding: 12px 20px;
+  text-align: left;
+  color: #333;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+  transition: all 0.2s ease;
+  white-space: nowrap; /* Evita saltos de línea */
+}
+
+.dropdown-item:hover {
+  background-color: #f5f5f5;
+}
+
+/* Estilos para el menú lateral */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: #ffffff;
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.2);
+  transition: left 0.3s ease;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  padding-top: 60px;
+}
+
+.sidebar.active {
+  left: 0;
+}
+
+.sidebar-item {
+  padding: 15px 20px;
+  text-align: left;
+  width: 100%;
+  border: none;
+  font-size: 1em;
+  cursor: pointer;
+  text-decoration: none;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar-item:hover {
+  background-color: #f0f0f0;
+}
+
+main {
+  padding: 20px;
+  margin-top: 60px; /* Espacio para la barra fija */
+}
+
+/* Estilos para el panel de categorías */
+.categorias-panel {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Estilos para la lista de categorías */
+#lista-categorias {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Estilos para las categorías */
+.categoria-item {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+}
+
+.categoria-header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.categoria-img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.categoria-nombre {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #333;
+}
+
+.categoria-acciones {
+  display: flex;
+  gap: 10px;
+  background-color: transparent;
+  padding: 0;
+}
+
+.editar-btn,
+.eliminar-btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9em;
+  cursor: pointer;
+  background-color: transparent;
+  color: #2196f3;
+  border: 1px solid #2196f3;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.editar-btn:hover {
+  background-color: #2196f3;
+  color: white;
+}
+
+.eliminar-btn {
+  color: #f44336;
+  border: 1px solid #f44336;
+}
+
+.eliminar-btn:hover {
+  background-color: #f44336;
+  color: white;
+}
+
+.ver-productos {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #f0f0f0;
+  text-align: center;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+
+.ver-productos:hover {
+  background-color: #e0e0e0;
+}
+
+/* Estilos para los productos */
+.productos-container {
+  margin-top: 10px;
+  padding-top: 10px;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+  opacity: 0;
+  max-height: 0;
+}
+
+.productos-container.mostrar {
+  max-height: 1000px;
+  opacity: 1;
+}
+
+.producto-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.producto-img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.producto-nombre {
+  flex-grow: 1;
+  font-size: 1em;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.producto-precio {
+  font-size: 1em;
+  color: #4caf50;
+}
+
+.btn-anadir-producto {
+  width: 100%;
+  padding: 10px;
+  background-color: #9c27b0;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-anadir-producto:hover {
+  background-color: #7b1fa2;
+}
+
+/* Estilos para los popups */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.popup-contenido {
+  background-color: white;
+  margin: 20px auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.btn-cancelar {
+  padding: 8px 16px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.btn-cancelar:hover {
+  background-color: #e53935;
+}
+
+/* Estilos para el formulario en popups */
+#form-categoria,
+#form-producto {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#form-categoria input,
+#form-categoria textarea,
+#form-producto input,
+#form-producto select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1em;
+}
+
+#form-categoria button,
+#form-producto button {
+  width: 100%;
+  padding: 12px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1em;
+  cursor: pointer;
+}
+
+#form-categoria button:hover,
+#form-producto button:hover {
+  background-color: #45a049;
+}
+
+/* Estilos para los grupos de ingredientes y acompañantes */
+.ingrediente-group,
+.acompanante-group {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ingrediente-group input,
+.acompanante-group input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1em;
+}
+
+#btn-gestion-ingredientes,
+#btn-gestion-acompanantes {
+  padding: 8px 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+#btn-gestion-ingredientes:hover,
+#btn-gestion-acompanantes:hover {
+  background-color: #45a049;
+}
+
+/* Estilos para el contenedor de fotos */
+.foto-container {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border: 2px dashed #ddd;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin: 10px 0;
+}
+
+.foto-selector {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+}
+
+.upload-icon {
+  font-size: 1.5em;
+}
+
+.foto-previa {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.eliminar-foto {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: #f44336;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.8em;
+}
+
+/* Estilos para los botones de cerrar sesión y catálogo */
+.btn-cerrar-sesion,
+.btn-catalogo {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-cerrar-sesion {
+  background-color: #f44336;
+  color: white;
+}
+
+.btn-cerrar-sesion:hover {
+  background-color: #e53935;
+}
+
+.btn-catalogo {
+  background-color: #03dac6;
+  color: white;
+  text-decoration: none;
+}
+
+.btn-catalogo:hover {
+  background-color: #018786;
+}
+
+/* Overlay para el fondo */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 998;
+}
+
+.overlay.active {
+  display: block;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  nav {
+    padding: 10px 15px;
+  }
+
+  .nav-title {
+    font-size: 1.2em;
+  }
+
+
+  .sidebar {
+    width: 200px;
+    left: -200px;
+  }
+
+  .dropdown-menu {
+    right: 10px; /* Ajuste fino para móviles */
+    min-width: 180px;
+    max-width: calc(100vw - 20px); /* Nunca más ancho que la pantalla */
+  }
+  
+  .hamburger {
+	font-size: 1.5em;
+    padding: 5px 8px; /* Reducir padding en móviles */
+  }
+}
+
+  .categorias-panel {
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  .categoria-item,
+  .producto-item {
+    padding: 10px;
+  }
+
+  .categoria-img,
+  .producto-img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .categoria-nombre,
+  .producto-nombre {
+    font-size: 1em;
+  }
+
+  .visibilidad-img {
+    width: 25px;
+    height: 25px;
+  }
+
+  .acciones {
+    flex-wrap: wrap;
+  }
+
+  .editar-btn,
+  .eliminar-btn {
+    padding: 5px 8px;
+    font-size: 0.7em;
+  }
+
+  .popup-contenido {
+    width: 85%;
+    margin: 10px auto;
+  }
+
+  #form-categoria,
+  #form-producto {
+    gap: 10px;
+  }
+
+  #form-categoria input,
+  #form-categoria textarea,
+  #form-producto input,
+  #form-producto select {
+    padding: 8px;
+  }
+
+  #form-categoria button,
+  #form-producto button {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dropdown-menu {
+    right: 5px;
+    min-width: 160px;
+  }
+  .dropdown-item {
+    padding: 10px 15px;
+    font-size: 0.9em;
+  }
+  .categoria-header,
+  .producto-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .acciones {
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  .editar-btn,
+  .eliminar-btn {
+    padding: 5px 8px;
+    font-size: 0.7em;
+  }
+
+  .visibilidad-img {
+    width: 20px;
+    height: 20px;
+  }
+}

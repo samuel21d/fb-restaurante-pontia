@@ -1,0 +1,528 @@
+/* Estilos generales */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+header {
+  background-color: #4CAF50;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.5em;
+}
+
+main {
+  padding: 20px;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.btn-volver {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #4CAF50;
+  text-decoration: none;
+  font-size: 1.1em;
+}
+
+.btn-volver:hover {
+  text-decoration: underline;
+}
+
+/* Estilos para el formulario */
+#form-producto {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#form-producto input,
+#form-producto textarea,
+#form-producto select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1em;
+}
+
+#form-producto input[type="file"] {
+  padding: 8px;
+}
+
+#form-producto button {
+  width: 100%;
+  padding: 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+#form-producto button:hover {
+  background-color: #45a049;
+}
+
+/* Estilos para la lista de productos */
+#lista-productos,
+#productos-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Estilos para los productos en el catálogo */
+.producto {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.producto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.producto img {
+  width: 100%; /* Ocupa el 100% del ancho del contenedor */
+  height: 300px; /* Aumentamos la altura para que las imágenes sean más grandes */
+  object-fit: cover; /* Ajusta la imagen sin distorsionarla */
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.producto h2 {
+  font-size: 1.5em;
+  margin: 10px 0;
+  color: #4CAF50;
+}
+
+.producto p {
+  margin: 5px 0;
+  font-size: 1em;
+  color: #666;
+}
+
+.producto .precio {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Estilos para los grupos de colores */
+.color-group {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+
+.color-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.color-group input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1em;
+}
+
+#agregar-color {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  margin-bottom: 20px;
+}
+
+#agregar-color:hover {
+  background-color: #45a049;
+}
+
+/* Estilos para la página de detalles */
+#detalles-producto {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#nombre-producto {
+  font-size: 2em;
+  margin-bottom: 10px;
+  color: #4CAF50;
+}
+
+#descripcion-producto {
+  font-size: 1.1em;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+#precio-producto {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+#carrusel-imagenes {
+  margin-bottom: 20px;
+}
+
+#imagen-principal img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+#miniaturas {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 10px; /* Espacio para el scroll */
+}
+
+#miniaturas img {
+  width: 60px; /* Tamaño más pequeño para móviles */
+  height: 60px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.2s;
+}
+
+#miniaturas img:hover {
+  border-color: #4CAF50;
+}
+
+#seleccion-color,
+#seleccion-talla {
+  margin-bottom: 20px;
+}
+
+#seleccion-color label,
+#seleccion-talla label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+#seleccion-color select,
+#seleccion-talla select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1em;
+}
+
+#whatsapp-btn {
+  width: 100%;
+  padding: 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+#whatsapp-btn:hover {
+  background-color: #45a049;
+}
+
+/* Media Queries para dispositivos móviles */
+@media (max-width: 600px) {
+  /* Estilos para la página de detalles */
+  #nombre-producto {
+    font-size: 1.8em;
+  }
+
+  #descripcion-producto {
+    font-size: 1em;
+  }
+
+  #precio-producto {
+    font-size: 1.3em;
+  }
+
+  #imagen-principal img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  #miniaturas img {
+    width: 50px; /* Tamaño más pequeño para móviles */
+    height: 50px;
+  }
+
+  #whatsapp-btn {
+    font-size: 1em;
+    padding: 12px;
+  }
+
+  /* Estilos para el catálogo */
+  .producto img {
+    width: 100%; /* Ancho completo para pantallas pequeñas */
+    height: auto; /* Altura proporcional */
+    object-fit: contain; /* Sin recortes */
+  }
+
+  .producto h2 {
+    font-size: 1.3em;
+  }
+
+  .producto p {
+    font-size: 0.9em;
+  }
+
+  .producto .precio {
+    font-size: 1.1em;
+  }
+}
+
+/* Estilos para las imágenes existentes en el formulario de edición */
+.imagenes-existente {
+  margin-top: 10px;
+}
+
+.imagenes-existente img {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  margin-right: 5px;
+  border: 2px solid #ddd;
+}
+
+/* Estilos para los botones de editar y eliminar */
+.producto button {
+  padding: 8px 12px;
+  margin: 5px;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9em;
+  cursor: pointer;
+}
+
+.producto button.editar {
+  background-color: #2196F3;
+  color: white;
+}
+
+.producto button.editar:hover {
+  background-color: #1e88e5;
+}
+
+.producto button.eliminar {
+  background-color: #f44336;
+  color: white;
+}
+
+.producto button.eliminar:hover {
+  background-color: #e53935;
+}
+
+/* Estilos para el contenedor de imágenes existentes */
+.imagen-container {
+  position: relative;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.eliminar-imagen {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  cursor: pointer;
+}
+
+.eliminar-imagen:hover {
+  background-color: darkred;
+}
+
+/* Nuevos estilos añadidos para el panel de administración */
+.btn-catalogo {
+  background-color: #03dac6;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin-top: 10px;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.btn-catalogo:hover {
+  background-color: #018786;
+}
+
+header {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-weight: bold;
+}
+
+/* Estilos nuevos para la página de login */
+.login-container {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.login-container h1 {
+  margin-bottom: 20px;
+  font-size: 2em;
+  color: #333;
+}
+
+.login-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.login-container input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+.login-container button {
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-container button:hover {
+  background-color: #45a049;
+}
+
+.login-container .forgot-password {
+  margin-top: 15px;
+}
+
+.login-container .forgot-password a {
+  color: #4CAF50;
+  text-decoration: none;
+  font-size: 0.9em;
+}
+
+.login-container .forgot-password a:hover {
+  text-decoration: underline;
+}
+
+/* Estilos para el modal de recuperación de contraseña */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #333;
+}
+
+.close-modal:hover {
+  color: #000;
+}
+
+#recovery-message {
+  margin-top: 15px;
+  color: green;
+  display: none;
+}
+
+/* Estilos para el botón de cerrar sesión */
+.btn-cerrar-sesion {
+  background-color: #f44336;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 10px;
+}
+
+.btn-cerrar-sesion:hover {
+  background-color: #e53935;
+}

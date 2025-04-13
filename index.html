@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menú del Restaurante</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <!-- Barra flotante reemplazando el header -->
+    <div id="barra-pedido" class="barra-flotante">
+      <div class="barra-contenido">
+        <span class="icono-bolsa"
+          >🛒<span id="contador-bolsa-barra" class="contador-bolsa"
+            >0</span
+          ></span
+        >
+        <span id="total-bolsa-barra">COP 0,00</span>
+        <button id="finalizar-pedido">Ir al pedido</button>
+      </div>
+    </div>
+
+    <main>
+      <div id="categorias-container"></div>
+    </main>
+
+    <!-- Ventana de la bolsa (nuevo diseño) -->
+    <div id="ventana-bolsa">
+      <div id="contenido-bolsa" class="bolsa-contenido">
+        <h2>Tu pedido</h2>
+        <div id="lista-productos" class="lista-productos"></div>
+        <div class="seccion-mesa">
+          <label for="numero-mesa">Número de mesa:</label>
+          <input
+            type="number"
+            id="numero-mesa"
+            name="numero-mesa"
+            min="1"
+            placeholder="Ingrese el número de mesa"
+          />
+        </div>
+        <div class="total-row">
+          <span>TOTAL</span>
+          <span id="total-bolsa" class="total-amount">COP 0,00</span>
+        </div>
+        <button id="hacer-pedido" class="btn-enviar">Enviar pedido</button>
+        <button id="cerrar-bolsa" class="btn-cerrar">Cerrar</button>
+      </div>
+    </div>
+
+    <!-- Librería Swiper (JavaScript) -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- Configuración de Firebase -->
+    <script type="module" src="firebase-config.js"></script>
+    <!-- Lógica principal de la aplicación -->
+    <script type="module" src="script.js"></script>
+  </body>
+</html>

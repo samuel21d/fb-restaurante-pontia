@@ -1,0 +1,150 @@
+/* Estilos generales */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.btn-volver {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #4CAF50;
+  text-decoration: none;
+  font-size: 1.1em;
+}
+
+.btn-volver:hover {
+  text-decoration: underline;
+}
+
+/* Estilos para la página de detalles */
+#detalles-producto {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#nombre-producto {
+  font-size: 2em;
+  margin-bottom: 10px;
+  color: #4CAF50;
+}
+
+#descripcion-producto {
+  font-size: 1.1em;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+#precio-producto {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+#carrusel-imagenes {
+  margin-bottom: 20px;
+}
+
+#imagen-principal img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+#miniaturas {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 10px; /* Espacio para el scroll */
+}
+
+#miniaturas img {
+  width: 60px; /* Tamaño más pequeño para móviles */
+  height: 60px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.2s;
+}
+
+#miniaturas img:hover {
+  border-color: #4CAF50;
+}
+
+#seleccion-color,
+#seleccion-talla {
+  margin-bottom: 20px;
+}
+
+#seleccion-color label,
+#seleccion-talla label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+#seleccion-color select,
+#seleccion-talla select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1em;
+}
+
+#whatsapp-btn {
+  width: 100%;
+  padding: 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+#whatsapp-btn:hover {
+  background-color: #45a049;
+}
+
+/* Media Queries para dispositivos móviles */
+@media (max-width: 600px) {
+  #nombre-producto {
+    font-size: 1.8em;
+  }
+
+  #descripcion-producto {
+    font-size: 1em;
+  }
+
+  #precio-producto {
+    font-size: 1.3em;
+  }
+
+  #imagen-principal img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  #miniaturas img {
+    width: 50px; /* Tamaño más pequeño para móviles */
+    height: 50px;
+  }
+
+  #whatsapp-btn {
+    font-size: 1em;
+    padding: 12px;
+  }
+}

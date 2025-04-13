@@ -1,0 +1,638 @@
+/* Estilos generales */
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+main {
+  padding: 20px;
+}
+
+/* Barra flotante de pedido */
+.barra-flotante {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  border-bottom: 2px solid #d4a017;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.barra-contenido {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.icono-bolsa {
+  font-size: 1.5em;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.contador-bolsa {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+#total-bolsa-barra {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #333;
+  margin-right: 20px;
+}
+
+#finalizar-pedido {
+  background-color: #d4a017;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 0;
+  font-size: 1em;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+}
+
+#finalizar-pedido:hover {
+  background-color: #b88d15;
+}
+
+/* Contenedor de categorías */
+#categorias-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 0;
+  margin-top: 60px;
+}
+
+/* Contenedor general de la categoría */
+.contenedor-general {
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Contenedor de la categoría (nuevo color: beige suave) */
+.categoria-contenedor {
+  width: 100%;
+  height: 250px;
+  background-color: #f5e7c3; /* Beige suave, cálido y elegante */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Imagen de fondo de la categoría */
+.categoria-imagen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.categoria-imagen::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background-color: rgba(0, 0, 0, 0.5);
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.categoria-img {
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  filter: brightness(0.8);
+  transition: transform 0.3s ease;
+}
+
+/* Título de la categoría */
+.categoria-titulo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3em;
+  font-weight: bold;
+  font-family: "Georgia", serif;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  margin: 0;
+  z-index: 2;
+}
+
+/* Contenedor de productos (nuevo color: marrón claro) */
+.categoria-productos {
+  padding: 0 20px 20px 20px;
+  position: relative;
+  overflow: visible;
+  background-color: #d9c8a9; /* Marrón claro, neutral y sofisticado */
+  height: calc(100% + 30px);
+  box-sizing: border-box;
+}
+
+/* Estilos del carrusel (nuevo color: gris claro) */
+.swiper-container {
+  width: 100%;
+  position: relative;
+  background-color: #f8f8f8; /* Gris claro o blanco roto, limpio y minimalista */
+  height: auto;
+  box-sizing: border-box;
+  padding-top: 2px;
+  padding-bottom: 38px;
+}
+
+.swiper-wrapper {
+  display: flex;
+  align-items: flex-start;
+  height: auto;
+  margin-top: 0;
+}
+
+.swiper-slide {
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 200ms linear;
+  transform: scale(0.8);
+  opacity: 0.5;
+  background: #eee;
+}
+
+.swiper-slide-active {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Producto dentro de la diapositiva (ajustado para mantener precio y botón abajo) */
+.producto {
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: left;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  margin: 0 5px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  box-sizing: border-box;
+  height: auto;
+}
+
+/* Contenedor de precio y botón (ajustado para estar siempre abajo) */
+.producto .info-final {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.producto img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.producto h3 {
+  font-size: 1.2em;
+  margin: 0;
+  color: #333;
+}
+
+.producto .ingredientes {
+  font-size: 0.9em;
+  color: #666;
+  margin: 0;
+  text-align: left;
+}
+
+.producto .precio {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #4caf50;
+  margin: 0;
+}
+
+/* Botón de añadir a la bolsa */
+.añadir-bolsa {
+  background-color: #d4a017;
+  color: white;
+  border: none;
+  width: 100px;
+  height: 40px;
+  border-radius: 0;
+  font-size: 1em;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.añadir-bolsa:hover {
+  background-color: #b88d15;
+}
+
+/* Ventana de la bolsa */
+#ventana-bolsa {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+}
+
+.bolsa-contenido {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.bolsa-contenido h2 {
+  margin: 0 0 10px;
+  font-size: 1.5em;
+  color: #333;
+}
+
+.lista-productos {
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 15px;
+}
+
+.lista-productos table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.lista-productos th,
+.lista-productos td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  min-height: 40px; /* Altura mínima para todas las celdas */
+  vertical-align: middle; /* Centrado vertical del contenido */
+}
+
+.lista-productos th {
+  background-color: #f8f8f8;
+  font-weight: bold;
+}
+
+.lista-productos tr:hover {
+  background-color: #f1f1f1;
+}
+
+.seccion-mesa {
+  margin-bottom: 15px;
+}
+
+.seccion-mesa label {
+  font-size: 1em;
+  color: #666;
+  margin-right: 10px;
+}
+
+#numero-mesa {
+  padding: 8px;
+  font-size: 1em;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 150px;
+}
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #333;
+}
+
+.total-amount {
+  color: #4caf50;
+}
+
+.btn-enviar,
+.btn-cerrar {
+  background-color: #d4a017;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 0;
+  font-size: 1em;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 10px;
+  transition: background 0.3s ease;
+}
+
+.btn-cerrar {
+  background-color: #f44336;
+}
+
+.btn-enviar:hover {
+  background-color: #b88d15;
+}
+
+.btn-cerrar:hover {
+  background-color: #d32f2f;
+}
+
+/* Flechas del Swiper (ajustadas para alinear con la imagen del producto y hacerlas más altas) */
+.swiper-button-prev,
+.swiper-button-next {
+  position: absolute;
+  top: calc(
+    50% - 75px
+  ); /* Centramos verticalmente respecto a la imagen de 150px en escritorio */
+  transform: translateY(
+    0
+  ); /* Eliminamos la transformación para un control más preciso */
+  width: 50px; /* Aumentamos el ancho para hacerlas más altas visualmente */
+  height: 50px; /* Aumentamos la altura para hacerlas más altas visualmente */
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 2px solid #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  opacity: 0.8;
+  z-index: 10;
+  transition: opacity 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  opacity: 1;
+}
+
+.swiper-button-prev {
+  left: -50px;
+}
+
+.swiper-button-next {
+  right: -50px;
+}
+
+/* Añadir íconos de flechas usando caracteres < y > */
+.swiper-button-prev::after {
+  content: "<";
+  font-size: 28px; /* Aumentamos el tamaño de la flecha para que coincida con el tamaño más alto */
+  color: #0f0;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+}
+
+.swiper-button-next::after {
+  content: ">";
+  font-size: 28px; /* Aumentamos el tamaño de la flecha para que coincida con el tamaño más alto */
+  color: #0f0;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+}
+
+/* Animación para el producto que viaja a la bolsa */
+@keyframes flyToCart {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(var(--endX), var(--endY)) scale(0.5);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(var(--endX), var(--endY)) scale(0.1);
+    opacity: 0;
+  }
+}
+
+/* Clase para el elemento animado */
+.producto-animado {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  background-color: #4caf50;
+  border-radius: 50%;
+  animation: flyToCart 0.8s ease-in-out forwards;
+  z-index: 10000;
+  pointer-events: none;
+}
+
+/* Estilos para las flechas en la bolsa */
+.flecha-disminuir,
+.flecha-aumentar {
+  background-color: #d4a017;
+  color: white;
+  border: none;
+  width: 20px; /* Reducido para encajar mejor en la celda */
+  height: 20px; /* Reducido para encajar mejor en la celda */
+  border-radius: 50%;
+  font-size: 1em; /* Tamaño de fuente ajustado */
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.flecha-disminuir:hover,
+.flecha-aumentar:hover {
+  background-color: #b88d15;
+  transform: scale(1.1);
+}
+
+.flecha-disminuir:active,
+.flecha-aumentar:active {
+  transform: scale(0.95);
+}
+
+/* Ajustar el texto de cantidad para que se alinee con las flechas */
+.lista-productos td:nth-child(2) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px; /* Reducido para mantener todo compacto */
+}
+
+/* Estilos para móviles */
+@media (max-width: 600px) {
+  .swiper-container {
+    padding-top: 2px;
+    padding-bottom: 28px;
+  }
+
+  .categoria-contenedor {
+    height: 200px;
+    background-color: #f5e7c3;
+  }
+
+  .categoria-img {
+    height: 200px;
+  }
+
+  .categoria-imagen {
+    height: 100%;
+  }
+
+  .swiper-slide {
+    height: auto;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .producto {
+    height: auto;
+    padding: 10px;
+    margin: 0;
+    max-width: 100%;
+    justify-content: space-between;
+  }
+
+  .categoria-img {
+    height: 200px;
+  }
+
+  .categoria-titulo {
+    font-size: 2em;
+  }
+
+  .producto img {
+    height: 120px;
+  }
+
+  .producto h3 {
+    font-size: 1.1em;
+  }
+
+  .swiper-pagination {
+    bottom: -15px;
+  }
+
+  .barra-contenido {
+    padding: 10px;
+  }
+
+  #finalizar-pedido {
+    padding: 8px 15px;
+    font-size: 0.9em;
+  }
+
+  .bolsa-contenido {
+    width: 85%;
+  }
+
+  .btn-enviar,
+  .btn-cerrar {
+    padding: 8px 15px;
+    font-size: 0.9em;
+  }
+
+  #numero-mesa {
+    width: 120px;
+  }
+
+  /* Ajustar flechas en móviles */
+  .swiper-button-prev,
+  .swiper-button-next {
+    top: calc(
+      25% - 25px
+    ); /* Centramos verticalmente respecto a la imagen de 120px en móviles */
+    width: 40px; /* Reducimos ligeramente el tamaño en móviles */
+    height: 40px; /* Reducimos ligeramente el tamaño en móviles */
+  }
+
+  .swiper-button-prev {
+    left: -20px;
+  }
+
+  .swiper-button-next {
+    right: -20px;
+  }
+
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
+    font-size: 22px; /* Reducimos el tamaño de la flecha en móviles */
+  }
+
+  /* Ajustar background-color de .categoria-productos en móviles */
+  .categoria-productos {
+    padding: 0 15px 15px 15px;
+    height: calc(100% + 20px);
+    background-color: #d9c8a9;
+  }
+
+  /* Ajustar background-color de .categoria-contenedor en móviles */
+  .categoria-contenedor {
+    background-color: #f5e7c3;
+  }
+
+  .producto .info-final {
+    margin-top: auto;
+  }
+
+  .swiper-wrapper {
+    align-items: flex-start;
+    margin-top: 0;
+  }
+}
